@@ -20,13 +20,19 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  modal,
 }: {
   children: React.ReactNode;
+  modal: React.ReactNode;
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={fonts.fontSans.className}>
-        <Providers>{children}</Providers>
+        <Providers>
+          {children}
+          {modal}
+        </Providers>
+
         <TailwindIndicator />
 
         <Script id="theme-script" strategy="beforeInteractive">
